@@ -5,7 +5,6 @@ import { _xem } from "../XEM/XEventManager.js";
 import * as fs from 'fs';
 import * as path from 'path';
 import { _xu } from "../XNUtils/XUtils.js";
-import { _xlog } from "@xpell/core";
 
 
 

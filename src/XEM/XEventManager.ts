@@ -19,14 +19,32 @@
  *   - fire(event, data, support_node_boolean) supported here (last arg boolean)
  */
 
-import { _xlog } from "@xpell/core";
-
-import {
-  _XEventManager as _XEventManagerBase,
-  type XEventListenerOptions as XEventListenerOptionsBase,
-} from "@xpell/core";
-
+import * as XCore from "@xpell/core";
 import { EventEmitter } from "node:events";
+
+const _xlog = (XCore as any)._xlog as Pick<Console, "log" | "warn" | "error" | "debug">;
+
+type XEventListenerOptionsBase = {
+  _once?: boolean;
+  _owner?: any;
+  _tag?: string;
+};
+
+type XEventManagerBase = {
+  on(
+    event_name: string,
+    listener: Function,
+    options?: XEventListenerOptionsBase,
+    owner?: any
+  ): string;
+  once(event_name: string, listener: Function, owner?: any): string;
+  remove(listener_id: string): void;
+  fire(event_name: string, data?: any): Promise<void>;
+  removeOwner(owner: any): void;
+  clear(): void;
+};
+
+const _XEventManagerBase = (XCore as any)._XEventManager as new () => XEventManagerBase;
 
 export type XEventListenerOptions = XEventListenerOptionsBase & {
   /**

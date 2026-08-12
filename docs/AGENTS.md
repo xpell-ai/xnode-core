@@ -1,0 +1,1 @@
+#agents.md file for xnode-core package
