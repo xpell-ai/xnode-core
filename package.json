@@ -1,0 +1,87 @@
+{
+  "name": "@xpell/node-core",
+  "version": "2.0.4",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Shared Node infrastructure for Xpell server runtimes.",
+  "files": [
+    "dist",
+    "src",
+    "types",
+    "docs"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "publish-alpha-next": "pnpm version prerelease --preid=alpha && pnpm publish --tag alpha"
+  },
+  "xpell": {
+    "_tests": [
+      {
+        "_id": "xpell-node-core.script.build",
+        "_title": "@xpell/node-core build verification",
+        "_owner": "@xpell/node-core",
+        "_suite": "xpell-node-core.package",
+        "_scope": "package",
+        "_runtime": "node",
+        "_description": "Build-only verification because no package test script exists.",
+        "_profiles": ["xpell-node-core.package"],
+        "_tags": ["package", "build"],
+        "_entry": {
+          "_type": "build",
+          "_script": "build"
+        }
+      },
+      {
+        "_id": "xpell-node-core.package.check",
+        "_title": "@xpell/node-core package metadata check",
+        "_owner": "@xpell/node-core",
+        "_suite": "xpell-node-core.package",
+        "_scope": "package",
+        "_runtime": "node",
+        "_description": "Verifies package metadata and declared local entries without publishing or network checks.",
+        "_profiles": ["xpell-node-core.package"],
+        "_tags": ["package-check"],
+        "_entry": {
+          "_type": "package-check",
+          "_check": "package"
+        }
+      }
+    ],
+    "_test_profiles": [
+      {
+        "_id": "xpell-node-core.package",
+        "_title": "@xpell/node-core package verification",
+        "_includes": ["xpell-node-core.*"],
+        "_tags": ["package", "build-only"]
+      }
+    ]
+  },
+  "author": "Tamir Fridman <tamir@aimeverse.com> (https://github.com/fridman-tamir)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AimeVerse/xpell-node"
+  },
+  "peerDependencies": {
+    "@xpell/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.63",
+    "@xpell/core": "^2.0.4",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
