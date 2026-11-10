@@ -86,7 +86,7 @@
     "url": "git+https://github.com/xpell-ai/xpell-node"
   },
   "dependencies": {
-    "@xpell/core": "^2.0.7"
+    "@xpell/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

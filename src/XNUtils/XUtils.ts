@@ -1,19 +1,9 @@
 import fs from "node:fs";
-import * as XCore from "@xpell/core";
+import { _XUtils, _xlog } from "@xpell/core";
 import { Buffer } from "node:buffer";
 import path from "node:path";
 
-const _xlog = (XCore as any)._xlog as Pick<Console, "log" | "warn" | "error" | "debug">;
-
-type XUtilsBase = {
-  get_path(obj: unknown, path: string | string[], fallback?: any): any;
-  set_path(obj: Record<string, any>, path: string | string[], value: any): Record<string, any>;
-  deepMergeDefaults<T>(data: Partial<T> | undefined, defaults: T): T;
-};
-
-const XUtilsBase = (XCore as any)._XUtils as new () => XUtilsBase;
-
-export class _XNUtils extends XUtilsBase {
+export class _XNUtils extends _XUtils {
   /**
    * Encode string to Base-64 format
    * @param str string to encode
