@@ -1,13 +1,16 @@
 {
   "name": "@xpell/node-core",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "publishConfig": {
     "access": "public"
   },
   "description": "Shared Node infrastructure for Xpell server runtimes.",
   "files": [
     "dist",
-    "docs"
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "exports": {
     ".": {
@@ -83,7 +86,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xpell-ai/xpell-node"
+    "url": "git+https://github.com/xpell-ai/xnode-core.git"
   },
   "dependencies": {
     "@xpell/core": "workspace:*"
