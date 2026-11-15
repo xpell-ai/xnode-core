@@ -1,5 +1,11 @@
 # @xpell/node-core
 
+## 2.0.8 release candidate
+
+Target publication date: **13 November 2026**; this candidate has not been published.
+Use the coordinated 2.0.8 runtime dependencies. See [CHANGELOG](./CHANGELOG.md)
+for package changes and qualification limits; [LICENSE](./LICENSE) contains the MIT terms.
+
 @xpell/node-core provides the shared Node.js infrastructure used by Xpell server runtimes. It is not a full server runtime; it contains small reusable building blocks that higher-level packages such as @xpell/node can compose.
 
 ## What It Exports
